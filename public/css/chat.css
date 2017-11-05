@@ -1,0 +1,132 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: url("../images/public_bg01.jpg");
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+ul,
+ol {
+    list-style: none;
+    padding: 0px;
+}
+
+.main {
+    width: 99%;
+    margin: 0px auto;
+}
+
+.main .col-left-main {
+    position: relative;
+}
+
+.show {
+    overflow: auto;
+}
+
+.list .item {
+    line-height: 25px;
+}
+
+.compiler {
+    position: absolute;
+    left: 0px;
+    bottom: 20px;
+    width: 100%;
+}
+
+.compiler .text {
+    float: left;
+    display: block;
+    padding: 15px;
+    resize: none;
+    width: 90%;
+    height: 80px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-right: none;
+    box-sizing: border-box;
+}
+
+.compiler .text:focus {
+    outline: none;
+}
+
+.compiler .button {
+    float: left;
+    width: 10%;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-size: 18px;
+    background-color: #ededed;
+    border: 1px solid #ccc;
+    border-left: none;
+    transition: 1s;
+}
+
+.compiler .button:hover {
+    background: #ccc;
+}
+
+.show-info {
+    position: absolute;
+    bottom: -20px;
+    left: 0px;
+}
+
+.col-md-right {
+    padding: 0px;
+    background-color: white;
+    overflow: auto;
+}
+
+.col-md-right .col-md-title {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #f1f1f1;
+}
+
+.col-md-right .user-list {
+    border: 1px solid #f1f1f1;
+}
+
+.col-md-right .user-list .item {
+    padding: 15px 0px 7px 7px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.col-md-right .user-list .item:last-child {
+    border: none;
+}
+
+.col-md-right .user-list .item .ico {
+    float: left;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.col-md-right .user-list .item .ico img {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.col-md-right .user-list .item .name {
+    float: left;
+    line-height: 40px;
+    margin-left: 15px;
+}
