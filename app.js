@@ -12,6 +12,7 @@ var index = require('./routes/index');
 var login = require('./routes/login');
 var register = require('./routes/register');
 var chat = require('./routes/chat');
+var portrait = require('./routes/portrait');
 
 var app = express();
 
@@ -19,7 +20,10 @@ var app = express();
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 1000 * 60 * 30
+  }
 }));
 
 // 设置模板引擎
@@ -50,7 +54,10 @@ app.post('/login', login);
 
 // char聊天室
 app.get('/chat', chat);
+app.post('/chat', chat);
 
+// 返回所有用户的头像和名字
+app.post('/portrait', portrait)
 // 捕获404，此错误不处理，向下传递
 app.use(function (req, res, next) {
   var err = new Error('Not Found');

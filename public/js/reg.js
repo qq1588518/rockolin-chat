@@ -20,8 +20,21 @@ $submit.click(function () {
             'phone': $phone.val(),
             'email': $email.val()
         },
-        function (result) {
-            console.log(result);
+        function (data) {
+            if (data.result === 1) {
+
+                layer.alert('注册成功', {
+                    icon: 1,
+                    skin: 'layer-ext-moon'
+                }, function () {
+                    window.location = "/login";
+                });
+            } else if (data.result === -1) {
+                layer.alert('注册失败', {
+                    icon: 2,
+                    skin: 'layer-ext-moon'
+                });
+            }
         }, "json"
     );
 });

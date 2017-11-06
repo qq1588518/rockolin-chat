@@ -29,19 +29,8 @@
             <div class="show">
                 <ul class="list">
                     <li class="item">
-                        系统(2017-11-5 19:16:14):你进入了聊天室！
-                    </li>
-                    <li class="item">
-                        系统(2017-11-5 19:16:14):你进入了聊天室！
-                    </li>
-                    <li class="item">
-                        系统(2017-11-5 19:16:14):你进入了聊天室！
-                    </li>
-                    <li class="item">
-                        系统(2017-11-5 19:16:14):你进入了聊天室！
-                    </li>
-                    <li class="item">
-                        系统(2017-11-5 19:16:14):你进入了聊天室！
+                        系统(
+                        <%= time %>):你进入了聊天室！
                     </li>
                 </ul>
             </div>
@@ -50,106 +39,23 @@
                 <div class="button">发送</div>
 
                 <div class="show-info">
-                    你好 哈哈 ，你正在对 所有人 说
+                    你好
+                    <span class="username">
+                        <%= name %>
+                    </span>，你正在对 所有人 说
                 </div>
             </div>
         </div>
         <div class="col-md-3 col-md-right">
-            <div class="col-md-title">在线用户</div>
+            <div class="col-md-title">全部用户</div>
             <div class="centent">
                 <ul class="user-list clearfix">
-                    <li class="item clearfix">
-                        <div class="ico">
-                            <img src="/images/2.jpg" />
-                        </div>
-                        <div class="name">
-                            欧阳建lion
-                        </div>
-                    </li>
-                    <li class="item clearfix">
-                        <div class="ico">
-                            <img src="/images/2.jpg" />
-                        </div>
-                        <div class="name">
-                            欧阳建lion
-                        </div>
-                    </li>
-                    <li class="item clearfix">
-                        <div class="ico">
-                            <img src="/images/2.jpg" />
-                        </div>
-                        <div class="name">
-                            欧阳建lion
-                        </div>
-                    </li>
-                    <li class="item clearfix">
-                        <div class="ico">
-                            <img src="/images/2.jpg" />
-                        </div>
-                        <div class="name">
-                            欧阳建lion
-                        </div>
-                    </li>
-                    <li class="item clearfix">
-                        <div class="ico">
-                            <img src="/images/2.jpg" />
-                        </div>
-                        <div class="name">
-                            欧阳建lion
-                        </div>
-                    </li>
-                    <li class="item clearfix">
-                        <div class="ico">
-                            <img src="/images/2.jpg" />
-                        </div>
-                        <div class="name">
-                            欧阳建lion
-                        </div>
-                    </li>
-                    <li class="item clearfix">
-                        <div class="ico">
-                            <img src="/images/2.jpg" />
-                        </div>
-                        <div class="name">
-                            欧阳建lion
-                        </div>
-                    </li>
-                    <li class="item clearfix">
-                        <div class="ico">
-                            <img src="/images/2.jpg" />
-                        </div>
-                        <div class="name">
-                            欧阳建lion
-                        </div>
-                    </li>
-                    <li class="item clearfix">
-                        <div class="ico">
-                            <img src="/images/2.jpg" />
-                        </div>
-                        <div class="name">
-                            欧阳建lion
-                        </div>
-                    </li>
-                    <li class="item clearfix">
-                        <div class="ico">
-                            <img src="/images/2.jpg" />
-                        </div>
-                        <div class="name">
-                            欧阳建lion
-                        </div>
-                    </li>
-                    <li class="item clearfix">
-                        <div class="ico">
-                            <img src="/images/2.jpg" />
-                        </div>
-                        <div class="name">
-                            欧阳建lion
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
 </body>
 
 </html>

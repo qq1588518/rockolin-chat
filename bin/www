@@ -7,7 +7,6 @@
 var app = require('../app');
 var debug = require('debug')('jl-chat:server');
 var http = require('http');
-var io = require('socket.io')(http);
 
 /**
  * 从环境中获取端口并快速存储。
@@ -30,6 +29,39 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+//统计客户端登录用户
+var onlineUsers = [];
+var iNowUser = '';
+// socket
+var io = require('socket.io').listen(server);
+io.sockets.on('connection', function (socket) {
+  console.log(socket.id);
+  console.log("1个客户端连接了");
+  // 服务器接收用户说的话，然后广播出去
+  socket.on("speak", function (msg) {
+    iNowUser = msg;
+    io.emit("answer", msg);
+  });
+  socket.on('name', function (msg) {
+    onlineUsers.push(msg);
+    onlineUsers = Array.from(new Set(onlineUsers));
+    io.emit("alluser", onlineUsers);
+  })
+});
+
+function unique(arrays) {
+  arrays.sort(); //先排序
+  var res = [arrays[0]];
+  for (var i = 1; i < arrays.length; i++) {
+    if (arrays[i] !== res[res.length - 1]) {
+      res.push(this[i]);
+    };
+    if (arrays[i] == null) {
+
+    }
+  }
+  return res;
+}
 /**
  * 将端口转换成数字，字符串，或假。
  */

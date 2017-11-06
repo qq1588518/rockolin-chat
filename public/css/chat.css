@@ -37,6 +37,10 @@ ol {
     line-height: 25px;
 }
 
+.list .item:last-child {
+    color: red;
+}
+
 .compiler {
     position: absolute;
     left: 0px;

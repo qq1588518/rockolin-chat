@@ -41,7 +41,17 @@ router.post('/register', function (req, res, next) {
     'email': email
   };
   mongo.insert('user', data, (err, result) => {
-    console.log(err);
+    if (err) {
+      res.send({
+        'result': -1
+      });
+      return;
+    } else {
+      res.send({
+        'result': 1
+      });
+      return;
+    }
   })
 });
 
