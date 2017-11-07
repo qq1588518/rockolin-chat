@@ -47,6 +47,10 @@ io.sockets.on('connection', function (socket) {
     onlineUsers = Array.from(new Set(onlineUsers));
     io.emit("alluser", onlineUsers);
   })
+  // 转发小白说的话
+  socket.on('req', function (msg) {
+    io.emit("xiaobai", msg);
+  })
 });
 
 function unique(arrays) {

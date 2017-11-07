@@ -24,6 +24,7 @@ router.post('/register', function (req, res, next) {
   let date = req.body.date;
   let phone = req.body.phone;
   let email = req.body.email;
+  let qq = req.body.qq;
   // 获取当前时间
   let time = sd.format(new Date(), 'YYYY-MM-DD HH:mm:ss');
   // 1到310的随机数
@@ -38,19 +39,31 @@ router.post('/register', function (req, res, next) {
     'created_time': time,
     'phone': phone,
     'birthday': date,
-    'email': email
+    'email': email,
+    'qq': qq
   };
-  mongo.insert('user', data, (err, result) => {
-    if (err) {
-      res.send({
-        'result': -1
+  mongo.find('user', {
+    'name': name
+  }, (err, result) => {
+    if (!result.length === 0) {
+      res.json({
+        'result': 3
       });
       return;
     } else {
-      res.send({
-        'result': 1
-      });
-      return;
+      mongo.insert('user', data, (err, result) => {
+        if (err) {
+          res.send({
+            'result': -1
+          });
+          return;
+        } else {
+          res.send({
+            'result': 1
+          });
+          return;
+        }
+      })
     }
   })
 });

@@ -19,8 +19,25 @@ $button.on("click", function () {
             'name': $username,
             'text': $text.val()
         },
+        function (data, textStatus, jqXHR) {},
+        "json"
+    );
+    var text = hex_md5($text.val());
+    console.log(text);
+    $.post("http://www.tuling123.com/openapi/api", {
+            'key': 'fb6b7bcfbe52fccdb7f5d752a3088f75',
+            'info': $text.val(),
+            'userid': '123456'
+        },
         function (data, textStatus, jqXHR) {
-            console.table(data);
+            socket.emit("req", data.text);
+            $.post("/chat", {
+                    'name': '小白',
+                    'text': data.text
+                },
+                function (data, textStatus, jqXHR) {},
+                "json"
+            );
         },
         "json"
     );
@@ -36,8 +53,15 @@ $text.on('keyup', function (ev) {
  * 显示用户输入的内容
  */
 socket.on("answer", function (msg) {
-    var $li = $('<li class="item">' + $username + ':' + msg + '</li>');
-    $list.prepend($li);
+    var $li = $('<li class="item">' + '用户' + ':' + msg + '</li>');
+    $list.append($li);
+});
+/**
+ * 接收小白说的话
+ */
+socket.on("xiaobai", function (msg) {
+    var $li = $('<li class="item">' + '小白' + ':' + msg + '</li>');
+    $list.append($li);
 });
 socket.emit("name", $username);
 /**
